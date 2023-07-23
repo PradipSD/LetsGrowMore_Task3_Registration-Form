@@ -1,0 +1,112 @@
+
+/* LetsGrowMore
+   Task3
+    By 
+Pradip Dound */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #E0EAFC;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+
+}
+.container {
+    margin: 0;
+    padding: 0;
+    padding-top:2rem ;
+    width: 30vw;
+    height: 90vh;
+    background: #FC5C7D;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #6A82FB, #FC5C7D);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #6A82FB, #FC5C7D);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px 100px;
+    position: relative;
+    top: 1.5rem;
+    left: 10rem;
+    box-shadow: 20px 40px grey;
+}
+
+label {
+    font-size: 20px;
+    margin-right: 10px;
+
+}
+
+.inp {
+    width: 15vw;
+    height: 4vh;
+    border-radius: 10px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    position: relative;
+    padding: 10px;
+
+}
+
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.sub {
+    width: 5rem;
+    height: 2rem;
+    font-weight: bold;
+    background-color: rgb(135, 154, 249);
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-left: 5rem;
+
+}
+
+.sub:hover {
+    background-color: darkcyan;
+
+}
+
+#output {
+    /* margin-top: 20px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    background-color: #f2f2f2;
+    max-width: 400px;
+    margin: 20px auto; */
+    width:30vw;
+    height: 50vh;
+    background: #FC5C7D;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #6A82FB, #FC5C7D);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #6A82FB, #FC5C7D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+    position: absolute;
+    top:13rem;
+    left:65rem;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   align-items: center;
+   padding: 20px;
+   border-radius: 20px ;
+ 
+}
+.divide{
+    width: 5px;
+    height: 80vh;
+    background-color: black;
+    position:absolute;
+    top: 10%;
+    left:50%;
+    border-radius: 10px;
+}

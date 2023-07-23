@@ -1,0 +1,120 @@
+
+<!-- LetsGrowMore
+   Task3
+    By 
+Pradip Dound -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registration Form</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        .selected-image{
+            width: 15vw;
+            height: 25vh;
+           border-radius: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Registration Form</h1><br><br>
+        <form id="registration-form" onsubmit="submitForm(event)">
+            <div class="form-group">
+                <label for="name">Name:</label><br>
+                <input class="inp" type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label><br>
+                <input class="inp" type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="website">Website:</label><br>
+                <input class="inp" type="text" id="website" name="website" required>
+            </div>
+            <div class="form-group">
+                <label for="image">Image:</label>
+                <input type="file" id="image" class="image" name="image" accept="image/*" required>
+            </div>
+            <div class="form-group">
+                <label class="group" for="gender">Gender:</label><br><br>
+                <input type="checkbox" id="gender-male" name="gender" value="Male">
+                <label for="gender-male">Male</label>
+                <input type="checkbox" id="gender-female" name="gender" value="Female">
+                <label for="gender-female">Female</label>
+            </div>
+            <div class="form-group">
+                <label class="group" for="skills">Skills:</label><br><br>
+                <input type="checkbox" id="skills-html" name="skills" value="HTML">
+                <label for="skills-html">HTML</label>
+                <input type="checkbox" id="skills-css" name="skills" value="CSS">
+                <label for="skills-css">CSS</label>
+                <input type="checkbox" id="skills-js" name="skills" value="JavaScript">
+                <label for="skills-js">JavaScript</label>
+            </div><br>
+            <button class="sub" type="submit">Submit</button>
+        </form>
+    </div>
+    <div class="divide"></div>
+    <div id="output"></div>
+
+    <script>
+        function submitForm(event) {
+    event.preventDefault();
+  
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const website = document.getElementById("website").value;
+    const imageInput = document.getElementById("image");
+  
+    const genderCheckboxes = document.querySelectorAll('input[name="gender"]:checked');
+    const genderValues = Array.from(genderCheckboxes).map(checkbox => checkbox.value);
+  
+    const skillsCheckboxes = document.querySelectorAll('input[name="skills"]:checked');
+    const skillsValues = Array.from(skillsCheckboxes).map(checkbox => checkbox.value);
+  
+    const formData = {
+      name,
+      email,
+      website,
+      gender: genderValues,
+      skills: skillsValues
+    };
+  
+    if (imageInput.files.length > 0) {
+      const imageFile = imageInput.files[0];
+      const reader = new FileReader();
+  
+      reader.onload = function(event) {
+        formData.image = event.target.result;
+        displayFormData(formData);
+      };
+  
+      reader.readAsDataURL(imageFile);
+    } else {
+      displayFormData(formData);
+    }
+  }
+  
+  function displayFormData(formData) {
+    const output = document.getElementById("output");
+    output.innerHTML = `
+      <h2>Registration Details:</h2>
+      <p><strong>Name:</strong> ${formData.name}</p>
+      <p><strong>Email:</strong> ${formData.email}</p>
+      <p><strong>Website:</strong> ${formData.website}</p>
+      ${formData.image ? `<img src="${formData.image}" alt="Uploaded Image" class="selected-image">` : ''}
+      <p><strong>Gender:</strong> ${formData.gender.join(", ")}</p>
+      <p><strong>Skills:</strong> ${formData.skills.join(", ")}</p>
+    `;
+  }
+  
+
+    </script>
+
+</body>
+
+</html>
